@@ -1,0 +1,63 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.bak
+*.log
+
+# DXF temporary files
+*_stretch.dxf
+*_FIXED.dxf
+*_CORRECTED.dxf
+*_markers.dxf
+
+# Analysis files
+*.csv
+*.png
+*.dwg
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Test output (keep original test files, ignore results)
+test/*_stretch.dxf
+test/*_FIXED.dxf
+test/*_CORRECTED.dxf
+test/*_markers.dxf
+test/*.csv
+test/*.png
+test/*.dwg
+

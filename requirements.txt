@@ -1,0 +1,5 @@
+pywin32>=306
+customtkinter>=5.2.0
+ezdxf>=1.1.4
+python-dotenv>=1.0.0
+
