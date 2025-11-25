@@ -25,7 +25,7 @@ class FlatPatternApp(ctk.CTk):
 
     def __init__(self):
         super().__init__()
-        self.title("Kompas Flat Pattern Stretcher Pro")
+        self.title("DXF Stretcher v3.0")
         self.geometry("920x680")
         ctk.set_appearance_mode("dark")
         ctk.set_default_color_theme("blue")
