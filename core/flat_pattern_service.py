@@ -10,8 +10,15 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Optional
 
-from .kompas_connector import KompasConnector
 from .dxf_processor import DxfProcessor, DxfInfo
+
+# Опциональный импорт КОМПАС (работает без него)
+try:
+    from .kompas_connector import KompasConnector
+    KOMPAS_AVAILABLE = True
+except ImportError:
+    KOMPAS_AVAILABLE = False
+    KompasConnector = None
 
 
 @dataclass
@@ -32,7 +39,7 @@ class FlatPatternService:
 
     def __init__(self):
         self.logger = logging.getLogger(self.__class__.__name__)
-        self.kompas = KompasConnector()
+        self.kompas = KompasConnector() if KOMPAS_AVAILABLE else None
         self.dxf = DxfProcessor()
         self.current_info: Optional[DxfInfo] = None
         self.current_dxf: Optional[Path] = None
@@ -42,6 +49,14 @@ class FlatPatternService:
     # ------------------------------------------------------------------ #
     def _export_via_kompas(self, file_path: Path) -> Path:
         """Экспортирует файл через КОМПАС в DXF (во временную папку)"""
+        if not KOMPAS_AVAILABLE or not self.kompas:
+            raise RuntimeError(
+                f"Для открытия файлов КОМПАС ({file_path.suffix}) необходимо:\n"
+                f"1. Установить КОМПАС-3D на компьютере\n"
+                f"2. Установить pywin32: pip install pywin32\n\n"
+                f"Либо экспортируйте файл в DXF вручную и используйте DXF."
+            )
+        
         if not self.kompas.open_document(str(file_path)):
             raise RuntimeError("Не удалось открыть файл в КОМПАС-3D")
 
