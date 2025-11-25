@@ -1,5 +1,9 @@
 # DXF Stretcher v3.0
 
+[![GitHub](https://img.shields.io/badge/GitHub-AlexPror%2FdxfStretcher-blue?logo=github)](https://github.com/AlexPror/dxfStretcher)
+[![Python](https://img.shields.io/badge/Python-3.8%2B-blue?logo=python)](https://www.python.org/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+
 Автоматизированная система для растяжения разверток листового металла в формате DXF.
 
 ## ✨ Возможности
