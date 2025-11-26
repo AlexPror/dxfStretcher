@@ -48,9 +48,9 @@ def build_exe():
         "--hidden-import", "customtkinter",
         "--hidden-import", "ezdxf",
         "--hidden-import", "PIL._tkinter_finder",
+        "--hidden-import", "numpy",  # Нужен для ezdxf.acc.matrix44
         # Исключаем ненужное для уменьшения размера
         "--exclude-module", "matplotlib",
-        "--exclude-module", "numpy",
         "--exclude-module", "pandas",
         main_script
     ]
